@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Interview Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+        nav {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #6f42c1;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #5a35a3;
+        }
+        #languageDropdown, 
+        #cvFile, 
+        #jobLink {
+            border-radius: 8px;
+        }
+        form {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        section {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #6f42c1;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Mock Interview</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#introduction">Introduction</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#language-selection">Language Selection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#cv-upload">Upload CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#job-description">Job Description</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <section id="introduction" class="text-center">
+            <h2>Welcome to Mock Interview</h2>
+            <p class="text-muted">Prepare for your dream job with realistic mock interviews, personalized feedback, and resume reviews. Your journey to success starts here.</p>
+        </section>
+
+        <section id="language-selection">
+            <h2>Language Selection</h2>
+            <p class="text-muted">Choose the language for your mock interview to ensure you feel confident and prepared.</p>
+            <label for="languageDropdown" class="form-label">Select your preferred interview language:</label>
+            <select class="form-select" id="languageDropdown">
+                <option selected>Choose a language...</option>
+                <option value="english">English</option>
+                <option value="spanish">Spanish</option>
+                <option value="french">French</option>
+                <option value="german">German</option>
+            </select>
+        </section>
+
+        <section id="cv-upload">
+            <h2>Upload CV</h2>
+            <p class="text-muted">Submit your CV in PDF format so our experts can tailor feedback specifically to you.</p>
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <label for="cvFile" class="form-label">Upload your CV (PDF format):</label>
+                <input type="file" class="form-control" id="cvFile" name="cvFile" accept=".pdf" required>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </section>
+
+        <section id="job-description">
+            <h2>Job Description</h2>
+            <p class="text-muted">Provide the job description link to align the mock interview questions with your target role.</p>
+            <form action="/submit-job-description" method="POST">
+                <label for="jobLink" class="form-label">Enter the job description link:</label>
+                <input type="url" class="form-control" id="jobLink" name="jobLink" placeholder="https://example.com/job-description" required>
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
+        </section>
+
+        <div class="text-center mt-4">
+            <a href="/mock-interview-call" class="btn btn-primary btn-lg">Proceed to Mock Interview Call</a>
+        </div>
+    </div>
+</body>
+</html>
